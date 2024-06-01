@@ -1,4 +1,4 @@
-package com.ohashi.message_orchestrator_service.application;
+package com.ohashi.message_orchestrator_service.application.config;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.springframework.beans.factory.annotation.Value;
