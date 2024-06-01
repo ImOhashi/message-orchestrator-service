@@ -1,0 +1,36 @@
+### server
+server:
+  port: 8080
+
+### spring
+spring:
+  application:
+    name: message-orchestrator-service
+  output:
+    ansi:
+      enabled: ALWAYS
+  kafka:
+    producer:
+      bootstrap-servers: localhost:29092
+      topics:
+        telegram-topic:
+          name: telegram-topic
+          partitions: 1
+
+### logging
+logging:
+  level:
+    root: INFO
+    com:
+      example: TRACE
+
+### actuator
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health, info
