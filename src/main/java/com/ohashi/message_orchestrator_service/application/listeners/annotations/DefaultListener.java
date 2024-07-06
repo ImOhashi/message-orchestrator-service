@@ -18,4 +18,7 @@ public @interface DefaultListener {
 
     @AliasFor(annotation = KafkaListener.class, attribute = "groupId")
     String groupId() default "";
+
+    @AliasFor(annotation = KafkaListener.class, attribute = "containerFactory")
+    String contatinerFactory() default "jsonContainerFactory";
 }
