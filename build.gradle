@@ -22,13 +22,26 @@ ext {
 }
 
 dependencies {
+
+	// Web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
-	implementation 'org.springframework.cloud:spring-cloud-starter-vault-config'
+
+	// Event
 	implementation 'org.springframework.kafka:spring-kafka'
+	implementation 'io.awspring.cloud:spring-cloud-aws-starter-sns'
+
+	// Resiliense
+	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
+
+	// Config
+	implementation 'org.springframework.cloud:spring-cloud-starter-vault-config'
+
+	// Ops
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+
+	// Test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-testcontainers'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
