@@ -1,0 +1,1 @@
+sns_name = "message-orchestrator-service-topic"
