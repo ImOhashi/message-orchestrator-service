@@ -7,7 +7,7 @@ provider "aws" {
   skip_requesting_account_id  = true
 
   endpoints {
-    sns = "http://localhost:4566"
+    sns = "http://aws:4566"
   }
 
   default_tags {

@@ -1,5 +1,3 @@
-version: '3'
-
 services:
 
   aws:
@@ -13,6 +11,8 @@ services:
       - DATA_DIR=/tmp/localstack/data
     ports:
       - "4566:4566"
+    networks:
+      - broker-localstack
 
   terraform:
     image: hashicorp/terraform:1.3.3
@@ -22,13 +22,15 @@ services:
     working_dir: /infra
     depends_on:
       - aws
-#    entrypoint: >
-#      sh -c "
-#      terraform init
-#      && terraform fmt
-#      && terraform validate
-#      && terraform plan -out='infra.out'
-#      && terraform apply infra.out"
+    entrypoint: >
+      sh -c "
+      terraform init
+      && terraform fmt
+      && terraform validate
+      && terraform plan -out='infra.out'
+      && terraform apply infra.out"
+    networks:
+      - broker-localstack
 
   prometheus:
     container_name: "prometheus-message-orchestrator-service"
@@ -76,4 +78,6 @@ services:
 
 networks:
   broker-kafka:
+    driver: bridge
+  broker-localstack:
     driver: bridge
